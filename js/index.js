@@ -40,11 +40,29 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"]);
+
+// Update the Nav
 for (let i=1; i<=6; i++) {
     document.querySelector(`header > nav > a:nth-child(${i})`).textContent = siteContent["nav"][`nav-item-${i}`];
 }
-let h1 = document.getElementsByTagName('h1')[0]
-h1.textContent = siteContent["cta"]["h1"];
+
+// Update CTA section
+document.getElementsByTagName('h1')[0].textContent = siteContent["cta"]["h1"];
 document.querySelector('.cta-text button').textContent = siteContent["cta"]["button"];
 document.getElementById("cta-img").setAttribute('src', siteContent["cta"]["img-src"]);
+
+// Update Main Content section
+let main_content_h4 = document.querySelectorAll('.main-content .text-content h4');
+let main_content_p = document.querySelectorAll('.main-content .text-content p');
+main_content_h4[0].textContent = siteContent["main-content"]["features-h4"];
+main_content_p[0].textContent = siteContent["main-content"]["features-content"];
+main_content_h4[1].textContent = siteContent["main-content"]["about-h4"];
+main_content_p[1].textContent = siteContent["main-content"]["about-content"];
+main_content_h4[2].textContent = siteContent["main-content"]["services-h4"];
+main_content_p[2].textContent = siteContent["main-content"]["services-content"];
+main_content_h4[3].textContent = siteContent["main-content"]["product-h4"];
+main_content_p[3].textContent = siteContent["main-content"]["product-content"];
+main_content_h4[4].textContent = siteContent["main-content"]["vision-h4"];
+main_content_p[4].textContent = siteContent["main-content"]["vision-content"];
+document.getElementById("middle-img").setAttribute('src', siteContent["main-content"]["middle-img-src"]);
 
