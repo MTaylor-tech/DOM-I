@@ -66,3 +66,12 @@ main_content_h4[4].textContent = siteContent["main-content"]["vision-h4"];
 main_content_p[4].textContent = siteContent["main-content"]["vision-content"];
 document.getElementById("middle-img").setAttribute('src', siteContent["main-content"]["middle-img-src"]);
 
+// Update Contact section
+document.querySelector('section.contact').style.width = '20%';
+document.querySelector('.contact h4').textContent = siteContent["contact"]["contact-h4"];
+let contact_p = document.querySelectorAll('.contact p');
+contact_p[0].textContent = siteContent["contact"]["address"];
+contact_p[1].textContent = siteContent["contact"]["phone"];
+contact_p[2].textContent = siteContent["contact"]["email"];
+
+
