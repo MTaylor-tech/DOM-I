@@ -40,11 +40,11 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"]);
-document.querySelector("body > div > header > nav > a:nth-child(1)").text = siteContent["nav"]["nav-item-1"];
-document.querySelector("body > div > header > nav > a:nth-child(2)").text = siteContent["nav"]["nav-item-2"];
-document.querySelector("body > div > header > nav > a:nth-child(3)").text = siteContent["nav"]["nav-item-3"];
-document.querySelector("body > div > header > nav > a:nth-child(4)").text = siteContent["nav"]["nav-item-4"];
-document.querySelector("body > div > header > nav > a:nth-child(5)").text = siteContent["nav"]["nav-item-5"];
-document.querySelector("body > div > header > nav > a:nth-child(6)").text = siteContent["nav"]["nav-item-6"];
-
+for (let i=1; i<=6; i++) {
+    document.querySelector(`header > nav > a:nth-child(${i})`).textContent = siteContent["nav"][`nav-item-${i}`];
+}
+let h1 = document.getElementsByTagName('h1')[0]
+h1.textContent = siteContent["cta"]["h1"];
+document.querySelector('.cta-text button').textContent = siteContent["cta"]["button"];
+document.getElementById("cta-img").setAttribute('src', siteContent["cta"]["img-src"]);
 
