@@ -74,4 +74,5 @@ contact_p[0].textContent = siteContent["contact"]["address"];
 contact_p[1].textContent = siteContent["contact"]["phone"];
 contact_p[2].textContent = siteContent["contact"]["email"];
 
-
+// Update Footer
+document.querySelector('footer p').textContent = siteContent["footer"]["copyright"];
