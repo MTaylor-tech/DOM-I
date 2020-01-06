@@ -1,14 +1,37 @@
 body {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  background-color: black;
+  font-family: 'Share Tech Mono', monospace;
 }
 
 .digit {
   display: inline-block;
   font-size: 80px;
+  background-color: black;
+  color: green;
 }
 
 .redDigit {
   color: red;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.button {
+  background-color: green;
+  color: black;
+  border: 0;
+  border-radius: 20px;
+  margin: 2vw;
+}
+
+.disabled {
+  background-color: #222222;
 }
