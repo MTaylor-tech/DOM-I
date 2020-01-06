@@ -48,15 +48,23 @@ function startTimer () {
     }
     timer_started = true;
     stopButton.disabled = false;
+    stopButton.className = "button";
     resetButton.disabled = true;
+    resetButton.className = "button disabled";
     startButton.disabled = true;
+    startButton.className = "button disabled";
 }
 
 function stopTimer () {
     timer_started = false;
     stopButton.disabled = true;
+    stopButton.className = "button disabled";
     resetButton.disabled = false;
-    startButton.disabled = false;
+    resetButton.className = "button";
+    if (dval[0]===0) {
+        startButton.disabled = false;
+        startButton.className = "button";
+    }
 }
 
 function resetTimer () {
@@ -65,6 +73,9 @@ function resetTimer () {
     dval = [0,0,0,0];
     updateTimer();
     resetButton.disabled = true;
+    resetButton.className = "button disabled";
+    startButton.disabled = false;
+    startButton.className = "button";
 }
 
 // Digit functions
