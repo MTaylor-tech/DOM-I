@@ -41,6 +41,8 @@ const siteContent = {
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"]);
 
+
+// Tasks 1 & 2
 // Update the Nav
 for (let i=1; i<=6; i++) {
     document.querySelector(`header > nav > a:nth-child(${i})`).textContent = siteContent["nav"][`nav-item-${i}`];
@@ -76,3 +78,18 @@ contact_p[2].textContent = siteContent["contact"]["email"];
 
 // Update Footer
 document.querySelector('footer p').textContent = siteContent["footer"]["copyright"];
+
+
+// Task 3
+// Navigation add items, text green
+let nav = document.querySelector('header nav');
+let newNavItem1 = document.createElement('a');
+newNavItem1.setAttribute('href','#');
+newNavItem1.textContent = "Support";
+nav.appendChild(newNavItem1);
+let newNavItem2 = document.createElement('a');
+newNavItem2.setAttribute('href','#');
+newNavItem2.textContent = "Home";
+nav.prepend(newNavItem2);
+let nav_items = document.querySelectorAll('header nav a');
+nav_items.forEach(function (item) { item.style.color = 'green'; });
