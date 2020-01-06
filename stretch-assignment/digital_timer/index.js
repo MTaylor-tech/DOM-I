@@ -1,9 +1,14 @@
 // Select Objects & Define Vars
-let digit1000 = document.getElementById('secondTens');
-let digit0100 = document.getElementById('secondOnes');
-let digit0010 = document.getElementById('msHundreds');
-let digit0001 = document.getElementById('msTens');
-let colon = document.getElementById('colon');
+const digit1000 = document.getElementById('secondTens');
+const digit0100 = document.getElementById('secondOnes');
+const digit0010 = document.getElementById('msHundreds');
+const digit0001 = document.getElementById('msTens');
+const colon = document.getElementById('colon');
+const startButton = document.getElementById('startButton');
+const stopButton = document.getElementById('stopButton');
+stopButton.disabled = true;
+const resetButton = document.getElementById('resetButton');
+resetButton.disabled = true;
 let dval = [0,0,0,0];
 let allDigits = [digit1000, digit0100, digit0010, digit0001];
 let timer = setInterval(function(){ addToTimer(); updateTimer(); }, 10);
@@ -27,8 +32,8 @@ function addToTimer () {
                 if (dval[1] === 10) {
                     dval[0] += 1;
                     dval[1] = 0;
-                    clearInterval(timer);
-                    timer_started = false;
+                    // clearInterval(timer);
+                    stopTimer();
                     allDigits.forEach(turnRed);
                     turnRed(colon);
                 }
@@ -38,11 +43,28 @@ function addToTimer () {
 }
 
 function startTimer () {
+    if (dval[0]===1) {
+        resetTimer();
+    }
+    timer_started = true;
+    stopButton.disabled = false;
+    resetButton.disabled = true;
+    startButton.disabled = true;
+}
+
+function stopTimer () {
+    timer_started = false;
+    stopButton.disabled = true;
+    resetButton.disabled = false;
+    startButton.disabled = false;
+}
+
+function resetTimer () {
     allDigits.forEach(clearRed);
     clearRed(colon);
     dval = [0,0,0,0];
     updateTimer();
-    timer_started = true;
+    resetButton.disabled = true;
 }
 
 // Digit functions
@@ -54,5 +76,8 @@ function clearRed (digit) {
     digit.className = "digit";
 }
 
-// Page Script
-startTimer();
+// Button event listeners
+startButton.addEventListener('click', startTimer);
+stopButton.addEventListener('click', stopTimer);
+resetButton.addEventListener('click', resetTimer);
+
