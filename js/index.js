@@ -49,13 +49,15 @@ for (let i=1; i<=6; i++) {
 }
 
 // Update CTA section
-document.getElementsByTagName('h1')[0].textContent = siteContent["cta"]["h1"];
-document.querySelector('.cta-text button').textContent = siteContent["cta"]["button"];
+const h1 = document.getElementsByTagName('h1')[0]
+h1.textContent = siteContent["cta"]["h1"];
+const button = document.querySelector('.cta-text button');
+button.textContent = siteContent["cta"]["button"];
 document.getElementById("cta-img").setAttribute('src', siteContent["cta"]["img-src"]);
 
 // Update Main Content section
-let main_content_h4 = document.querySelectorAll('.main-content .text-content h4');
-let main_content_p = document.querySelectorAll('.main-content .text-content p');
+const main_content_h4 = document.querySelectorAll('.main-content .text-content h4');
+const main_content_p = document.querySelectorAll('.main-content .text-content p');
 main_content_h4[0].textContent = siteContent["main-content"]["features-h4"];
 main_content_p[0].textContent = siteContent["main-content"]["features-content"];
 main_content_h4[1].textContent = siteContent["main-content"]["about-h4"];
@@ -71,7 +73,7 @@ document.getElementById("middle-img").setAttribute('src', siteContent["main-cont
 // Update Contact section
 document.querySelector('section.contact').style.width = '20%';
 document.querySelector('.contact h4').textContent = siteContent["contact"]["contact-h4"];
-let contact_p = document.querySelectorAll('.contact p');
+const contact_p = document.querySelectorAll('.contact p');
 contact_p[0].textContent = siteContent["contact"]["address"];
 contact_p[1].textContent = siteContent["contact"]["phone"];
 contact_p[2].textContent = siteContent["contact"]["email"];
@@ -82,14 +84,29 @@ document.querySelector('footer p').textContent = siteContent["footer"]["copyrigh
 
 // Task 3
 // Navigation add items, text green
-let nav = document.querySelector('header nav');
-let newNavItem1 = document.createElement('a');
+const nav = document.querySelector('header nav');
+const newNavItem1 = document.createElement('a');
 newNavItem1.setAttribute('href','#');
 newNavItem1.textContent = "Support";
 nav.appendChild(newNavItem1);
-let newNavItem2 = document.createElement('a');
+const newNavItem2 = document.createElement('a');
 newNavItem2.setAttribute('href','#');
 newNavItem2.textContent = "Home";
 nav.prepend(newNavItem2);
-let nav_items = document.querySelectorAll('header nav a');
+const nav_items = document.querySelectorAll('header nav a');
 nav_items.forEach(function (item) { item.style.color = 'green'; });
+
+// Stretch
+let buttonOn = false;
+function switchButton () {
+    if (buttonOn) {
+        h1.textContent = siteContent["cta"]["h1"];
+        h1.style.color = "black";
+        buttonOn = false;
+    } else {
+        h1.textContent = "Now You\'re Cookin\'";
+        h1.style.color = "red";
+        buttonOn = true;
+    }
+}
+button.addEventListener('click', switchButton);
