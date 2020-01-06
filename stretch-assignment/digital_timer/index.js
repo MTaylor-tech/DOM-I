@@ -87,8 +87,8 @@ function clearRed (digit) {
     digit.className = "digit";
 }
 
-// Button event listeners
-startButton.addEventListener('click', startTimer);
+// Button event listenersstartButton.addEventListener('click', startTimer);
+
 stopButton.addEventListener('click', stopTimer);
 resetButton.addEventListener('click', resetTimer);
 
